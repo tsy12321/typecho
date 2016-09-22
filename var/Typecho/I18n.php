@@ -79,6 +79,9 @@ class Typecho_I18n
         /** GetText支持 */
         if (false === self::$_loaded && self::$_lang && file_exists(self::$_lang)) {
             self::$_loaded = new Typecho_I18n_GetTextMulti(self::$_lang);
+        } else {
+            self::$_loaded = false;
+            self::$_lang = NULL;
         }
     }
 

@@ -27,7 +27,7 @@ class Widget_Init extends Typecho_Widget
         $options = $this->widget('Widget_Options');
 
         /** 语言包初始化 */
-        if ($options->lang && $options->lang != 'zh_CN') {
+        if ($options->lang && !('zh_CN' == $options->lang || 'zh-cn' == $options->lang)) {
             $dir = defined('__TYPECHO_LANG_DIR__') ? __TYPECHO_LANG_DIR__ : __TYPECHO_ROOT_DIR__ . '/usr/langs';
             Typecho_I18n::setLang($dir . '/' . $options->lang . '.mo');
         }
