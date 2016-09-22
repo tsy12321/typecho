@@ -179,8 +179,8 @@ if (empty($lang) && count($langs) > 1) {
 if (empty($lang)) {
     $lang = 'zh_CN';
 }
-
-if ('zh_CN' != $lang) {
+    
+if (!('zh_CN' == $lang || 'zh-cn' == $lang)) {
     $dir = defined('__TYPECHO_LANG_DIR__') ? __TYPECHO_LANG_DIR__ : __TYPECHO_ROOT_DIR__ . '/usr/langs';
     Typecho_I18n::setLang($dir . '/' . $lang . '.mo');
 }
