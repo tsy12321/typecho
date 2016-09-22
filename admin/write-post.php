@@ -98,18 +98,18 @@ Typecho_Widget::widget('Widget_Contents_Post_Edit')->to($post);
 
                         <button type="button" id="advance-panel-btn" class="btn btn-xs"><?php _e('高级选项'); ?> <i class="i-caret-down"></i></button>
                         <div id="advance-panel">
-                            <?php if($user->pass('editor', true)): ?>
+                            <?php //if($user->pass('editor', true)): ?>
                             <section class="typecho-post-option visibility-option">
                                 <label for="visibility" class="typecho-label"><?php _e('公开度'); ?></label>
                                 <p>
                                 <select id="visibility" name="visibility">
-                                    <?php if ($user->pass('editor', true)): ?>
+                                    <?php //if ($user->pass('editor', true)): ?>
                                     <option value="publish"<?php if (($post->status == 'publish' && !$post->password) || !$post->status): ?> selected<?php endif; ?>><?php _e('公开'); ?></option>
                                     <option value="hidden"<?php if ($post->status == 'hidden'): ?> selected<?php endif; ?>><?php _e('隐藏'); ?></option>
                                     <option value="password"<?php if (strlen($post->password) > 0): ?> selected<?php endif; ?>><?php _e('密码保护'); ?></option>
                                     <option value="private"<?php if ($post->status == 'private'): ?> selected<?php endif; ?>><?php _e('私密'); ?></option>
-                                    <?php endif; ?>
-                                    <option value="waiting"<?php if (!$user->pass('editor', true) || $post->status == 'waiting'): ?> selected<?php endif; ?>><?php _e('待审核'); ?></option>
+                                    <?php //endif; ?>
+                                    <!--暂时去掉审核功能-->
                                 </select>
                                 </p>
                                 <p id="post-password"<?php if (strlen($post->password) == 0): ?> class="hidden"<?php endif; ?>>
@@ -117,7 +117,7 @@ Typecho_Widget::widget('Widget_Contents_Post_Edit')->to($post);
                                     <input type="text" name="password" id="protect-pwd" class="text-s" value="<?php $post->password(); ?>" size="16" placeholder="<?php _e('内容密码'); ?>" />
                                 </p>
                             </section>
-                            <?php endif; ?>
+                            <?php //endif; ?>
 
                             <section class="typecho-post-option allow-option">
                                 <label class="typecho-label"><?php _e('权限控制'); ?></label>

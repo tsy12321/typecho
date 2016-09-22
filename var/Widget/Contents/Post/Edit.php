@@ -219,7 +219,7 @@ class Widget_Contents_Post_Edit extends Widget_Abstract_Contents implements Widg
     protected function publish(array $contents)
     {
         /** 发布内容, 检查是否具有直接发布的权限 */
-        if ($this->user->pass('editor', true)) {
+//        if ($this->user->pass('editor', true)) {
             if (empty($contents['visibility'])) {
                 $contents['status'] = 'publish';
             } else if ('password' == $contents['visibility'] || !in_array($contents['visibility'], array('private', 'waiting', 'publish', 'hidden'))) {
@@ -231,10 +231,10 @@ class Widget_Contents_Post_Edit extends Widget_Abstract_Contents implements Widg
                 $contents['status'] = $contents['visibility'];
                 $contents['password'] = '';
             }
-        } else {
-            $contents['status'] = 'waiting';
-            $contents['password'] = '';
-        }
+//        } else {
+//            $contents['status'] = 'waiting';
+//            $contents['password'] = '';
+//        }
 
         /** 真实的内容id */
         $realId = 0;
